@@ -43,7 +43,6 @@ namespace Pizza_La_Rosa
         public frmMain()
         {
             InitializeComponent();
-            txtDatabase.Text = mDBPath;
         }
 
         #region Functions
@@ -75,7 +74,7 @@ namespace Pizza_La_Rosa
                 loadIngridients();
 
                 dgvOrders.AutoGenerateColumns = false;
-                //Gert commented
+                //Gert.heine@aol.com commented
                 //mDeliverySectors.Sort();
                 //this.cmbDeliverySector.DataSource = mDeliverySectors;
 
@@ -147,11 +146,12 @@ namespace Pizza_La_Rosa
                 this.txtHouseNo.Text = Access.AccessSQL.getString(res.Rows[0]["c_HouseNumber"]);
                 this.txtPostalCode.Text = Access.AccessSQL.getString(res.Rows[0]["c_PostalCode"]);
                 this.txtCity.Text = Access.AccessSQL.getString(res.Rows[0]["c_City"]);
-                //this.cmbDeliverySector.SelectedItem = Access.AccessSQL.getString(res.Rows[0]["c_DeliverySector"]); //Gert commented
+                //this.cmbDeliverySector.SelectedItem = Access.AccessSQL.getString(res.Rows[0]["c_DeliverySector"]); //Gert.heine@aol.com commented
                 this.txtClientNo.Text = Access.AccessSQL.getString(res.Rows[0]["c_Number"]);
                 
-                //gert
-                this.chkHardcoded.Checked = Access.AccessSQL.getInt(res.Rows[0]["c_Hard"]) == 1;
+                //Gert.heine@aol.com
+                //this.chkHardcoded.Checked = Access.AccessSQL.getInt(res.Rows[0]["c_Hard"]) == 1;
+                /*
                 if (this.chkHardcoded.Checked)
                 {
                     txtTelephone.Enabled = false;
@@ -170,6 +170,7 @@ namespace Pizza_La_Rosa
                     txtPostalCode.Enabled = true;
                     txtCity.Enabled = true;
                 }
+                */
             }
             else
             {
@@ -225,7 +226,7 @@ namespace Pizza_La_Rosa
                 chcmbIngridients.SetItemChecked(i, false);
             }
 
-            //gert
+            //Gert.heine@aol.com
             lblComment.Visible = true;
             txtComment.Clear();
             txtComment.Visible = true;
@@ -347,6 +348,23 @@ namespace Pizza_La_Rosa
             }
             return table;
         }
+        //Gert
+        private DataTable ToDataTableMonthYear(IList<CompletedOrderMonthYear> data)
+        {
+            PropertyDescriptorCollection properties =
+                TypeDescriptor.GetProperties(typeof(CompletedOrderMonthYear));
+            DataTable table = new DataTable();
+            foreach (PropertyDescriptor prop in properties)
+                table.Columns.Add(prop.Name, Nullable.GetUnderlyingType(prop.PropertyType) ?? prop.PropertyType);
+            foreach (CompletedOrderMonthYear item in data)
+            {
+                DataRow row = table.NewRow();
+                foreach (PropertyDescriptor prop in properties)
+                    row[prop.Name] = prop.GetValue(item) ?? DBNull.Value;
+                table.Rows.Add(row);
+            }
+            return table;
+        }
 
         #region "Invoice Related"
         
@@ -435,7 +453,7 @@ namespace Pizza_La_Rosa
                     Access.AccessSQL.getString(clData.Rows[0]["c_HouseNumber"]) + Environment.NewLine;
                 outData += Access.AccessSQL.getString(clData.Rows[0]["c_PostalCode"]) + " " +
                     Access.AccessSQL.getString(clData.Rows[0]["c_City"]) + Environment.NewLine;
-                //gert comment outData += Access.AccessSQL.getString(clData.Rows[0]["c_DeliverySector"]) + Environment.NewLine;
+                //Gert.heine@aol.com comment outData += Access.AccessSQL.getString(clData.Rows[0]["c_DeliverySector"]) + Environment.NewLine;
                 outData += "Tel: " + Access.AccessSQL.getString(clData.Rows[0]["c_PhoneNumber"]) + Environment.NewLine;
             }
 
@@ -517,7 +535,7 @@ namespace Pizza_La_Rosa
             txtHouseNo.Clear();
             txtPostalCode.Clear();
             txtCity.Clear();
-            //gert comment cmbDeliverySector.SelectedIndex = -1;
+            //Gert.heine@aol.com comment cmbDeliverySector.SelectedIndex = -1;
             txtClientNo.Clear();
             txtTelephone.Focus();
 
@@ -533,7 +551,7 @@ namespace Pizza_La_Rosa
             lblRabbat.Text = "";
             pnlIngredients.Visible = false;
 
-            //gert
+            //Gert.heine@aol.com
             lblComment.Visible = false;
             txtComment.Visible = false;
             txtComment.Clear();
@@ -546,12 +564,14 @@ namespace Pizza_La_Rosa
         private void btnSave_Click(object sender, EventArgs e)
         {
             int clntNo = -1;
+            /*
             if(txtName.Enabled == false && chkHardcoded.Checked == true)
             {
                 displayMessage("Stable client.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            
+            */
+
             if (string.IsNullOrEmpty(txtName.Text))
             {
                 displayMessage("Client name can't be blank!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -574,10 +594,10 @@ namespace Pizza_La_Rosa
                 AddUpdateVals.Add("c_HouseNumber", this.txtHouseNo.Text);
                 AddUpdateVals.Add("c_PostalCode", this.txtPostalCode.Text);
                 AddUpdateVals.Add("c_City", this.txtCity.Text);
-                //AddUpdateVals.Add("c_DeliverySector", this.cmbDeliverySector.SelectedItem.ToString()); //Gert commented
+                //AddUpdateVals.Add("c_DeliverySector", this.cmbDeliverySector.SelectedItem.ToString()); //Gert.heine@aol.com commented
                 
-                //gert added
-                AddUpdateVals.Add("c_Hard", this.chkHardcoded.Checked ? "1" : "0"); ;
+                //Gert.heine@aol.com added
+                //AddUpdateVals.Add("c_Hard", this.chkHardcoded.Checked ? "1" : "0"); ;
 
                 // adding!!
                 if (clID == 0 || clntNo == -1)
@@ -606,7 +626,8 @@ namespace Pizza_La_Rosa
                         actionPerformed = true;
                     }
                 }
-                //gert
+                //Gert.heine@aol.com
+                /*
                 if (chkHardcoded.Checked == false)
                 {
                     txtTelephone.Enabled = true;
@@ -624,6 +645,7 @@ namespace Pizza_La_Rosa
                     txtPostalCode.Enabled = false;
                     txtCity.Enabled = false;
                 }
+                */
                 if (actionPerformed)
                     prepareAutoCompleteSources();
             }
@@ -669,7 +691,7 @@ namespace Pizza_La_Rosa
                 grpVariations.Text = Access.AccessSQL.getString(prDetails.Rows[0]["p_Name"]);
                 lblRealPrice_1.Text = Access.AccessSQL.getDouble(prDetails.Rows[0]["p_Price"]).ToString("C2");
                 //
-                //gert
+                //Gert.heine@aol.com
                 // read driver table
                 prDetails = mDB.Select("Select `id`,`d_Name` from `Drivers`");
                 foreach(DataRow obj in  prDetails.Rows){
@@ -750,7 +772,7 @@ namespace Pizza_La_Rosa
                newOrder.Quantity = (int)nudQuantity.Value;
                newOrder.ReferenceNo = long.Parse(txtReferenceNo.Text);
                
-               //gert added
+               //Gert.heine@aol.com added
                newOrder.Comment = txtComment.Text;
                if (chkDelivery.Checked)
                    newOrder.DriverID = cmbDrivers.Text;
@@ -833,7 +855,7 @@ namespace Pizza_La_Rosa
                 AddVals.Add("c_ID", clID.ToString());
                 AddVals.Add("o_Date", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
                 AddVals.Add("o_Sum", ordertotal.ToString());
-                //gert
+                //Gert.heine@aol.com
                 AddVals.Add("o_Comment", txtComment.Text);
                 if (chkDelivery.Checked)
                 {
@@ -851,7 +873,7 @@ namespace Pizza_La_Rosa
                     AddVals.Add("p_ID", oOrder.ProductID.ToString());
                     AddVals.Add("v_ID", oOrder.getVariationID().ToString());
                     AddVals.Add("p_Price", oOrder.TotalPrice.ToString());
-                    //gert 11/07/2016
+                    //Gert.heine@aol.com 11/07/2016
                     //AddVals.Add("o_Comment", oOrder.Comment);
                     AddVals.Add("d_ID", oOrder.DriverID);
 
@@ -885,6 +907,7 @@ namespace Pizza_La_Rosa
         private void btnDisplay_Click(object sender, EventArgs e)
         {
             List<CompeltedOrder> cords = new List<CompeltedOrder>();
+            List<CompletedOrderMonthYear> cords_my = new List<CompletedOrderMonthYear>();
             string vFDate, vTdate;
             int reportType = 0; // 0 - daily, 1-monthly, 2-yearly
 
@@ -916,7 +939,7 @@ namespace Pizza_La_Rosa
             }
 
             // get orders that match seleted day...
-            // gert added o_Date;
+            // Gert.heine@aol.com added o_Date;
             DataTable orders = mDB.Select(@"Select o_No,c_Number,o_Sum,c_Name,o_Date from Orders " +
                 "left join Clients as cltbl1 on (cltbl1.c_ID = Orders.c_ID) where o_Date between #" + vFDate + "# And #" + vTdate + "#");
 
@@ -928,7 +951,7 @@ namespace Pizza_La_Rosa
 
 
             //
-            // Gert
+            // Gert.heine@aol.com
             // e.g. total[2016][10][18]
             Dictionary<int, List<List<double>>> total = new Dictionary<int, List<List<double>>>();
             DateTime prevDate = new DateTime(1, 1, 1);
@@ -951,10 +974,10 @@ namespace Pizza_La_Rosa
                     if(reportType == 1)
                     if (prevDate.Month == date.Month && prevDate.Day != date.Day && prevDate.Year == date.Year)
                     {
-                        CompeltedOrder ordSub = new CompeltedOrder();
-                        ordSub.orderNum = prevDate.ToShortDateString();
+                        CompletedOrderMonthYear ordSub = new CompletedOrderMonthYear();
+                        ordSub.OrderDate = prevDate.ToShortDateString();
                         ordSub.orderSum = total[prevDate.Year][prevDate.Month - 1][prevDate.Day - 1];
-                        cords.Add(ordSub);
+                        cords_my.Add(ordSub);
                     }
                     //new month
                     //
@@ -973,10 +996,10 @@ namespace Pizza_La_Rosa
                         //
                         //month
                         //
-                        CompeltedOrder ordSub2 = new CompeltedOrder();
-                        ordSub2.orderNum = prevDate.Month + "/" + prevDate.Year;
+                        CompletedOrderMonthYear ordSub2 = new CompletedOrderMonthYear();
+                        ordSub2.OrderDate = prevDate.Month + "/" + prevDate.Year;
                         ordSub2.orderSum = total[prevDate.Year][prevDate.Month - 1].Sum(x => x);
-                        cords.Add(ordSub2);
+                        cords_my.Add(ordSub2);
                     }
                     //new year
                     //
@@ -1002,18 +1025,18 @@ namespace Pizza_La_Rosa
                         //
                         //year
                         //
-                        CompeltedOrder ordSub3 = new CompeltedOrder();
-                        ordSub3.orderNum = prevDate.Year.ToString();
+                        CompletedOrderMonthYear ordSub3 = new CompletedOrderMonthYear();
+                        ordSub3.OrderDate = prevDate.Year.ToString();
                         ordSub3.orderSum = total[prevDate.Year].Sum(x => x.Sum(y => y));
-                        cords.Add(ordSub3);
+                        cords_my.Add(ordSub3);
                     }
                 }
 
                 prevDate = date;
-                if(reportType==0)
-                cords.Add(ord);
+                if (reportType == 0)
+                    cords.Add(ord);
                 //
-                // calculate sub totals. Gert
+                // calculate sub totals. Gert.heine@aol.com
                 //
                 if (!total.ContainsKey(date.Year))
                 {
@@ -1038,10 +1061,19 @@ namespace Pizza_La_Rosa
                     // subtotal day
                     if (reportType == 0 || reportType ==1)
                     {
-                        CompeltedOrder ordSub = new CompeltedOrder();
-                        ordSub.orderNum = date.ToShortDateString();
-                        ordSub.orderSum = total[date.Year][date.Month - 1][date.Day - 1];
-                        cords.Add(ordSub);
+                        if (reportType == 0)
+                        {
+                            CompeltedOrder ordSub = new CompeltedOrder();
+                            ordSub.orderNum = date.ToShortDateString();
+                            ordSub.orderSum = total[date.Year][date.Month - 1][date.Day - 1];
+                            cords.Add(ordSub);
+                        }else
+                        {
+                            CompletedOrderMonthYear ordSub = new CompletedOrderMonthYear();
+                            ordSub.OrderDate = date.ToShortDateString();
+                            ordSub.orderSum = total[date.Year][date.Month - 1][date.Day - 1];
+                            cords_my.Add(ordSub);
+                        }
                     }
                     //
                     // subtotal month
@@ -1049,10 +1081,10 @@ namespace Pizza_La_Rosa
                     if (reportType == 1 || reportType == 2)
                     //if (prevDate.Month != date.Month && prevDate.Year == date.Year)
                     {
-                        CompeltedOrder ordSub = new CompeltedOrder();
-                        ordSub.orderNum = date.Month + "/" + date.Year;
+                        CompletedOrderMonthYear ordSub = new CompletedOrderMonthYear();
+                        ordSub.OrderDate = date.Month + "/" + date.Year;
                         ordSub.orderSum = total[date.Year][date.Month - 1].Sum(x => x);
-                        cords.Add(ordSub);
+                        cords_my.Add(ordSub);
                     }
                     //
                     // subtotal year
@@ -1060,25 +1092,39 @@ namespace Pizza_La_Rosa
                     //if (prevDate.Year != date.Year)
                     if (reportType == 2)
                     {
-                        CompeltedOrder ordSub = new CompeltedOrder();
-                        ordSub.orderNum = date.Year.ToString();
+                        CompletedOrderMonthYear ordSub = new CompletedOrderMonthYear();
+                        ordSub.OrderDate = date.Year.ToString();
                         ordSub.orderSum = total[date.Year].Sum(x => x.Sum(y => y));
-                        cords.Add(ordSub);
+                        cords_my.Add(ordSub);
                     }
                 }
 
             }
 
 
-            DataTable dsComplOrders = ToDataTable(cords);
+            DataTable dsComplOrders = null;
 
             // attach to reportviewer
             frmReportViewer frView = new frmReportViewer();
 
-            //gert added 04.11.2016
-            if (cords.Count > 0)
-                frView.prepareDailyReport(dsComplOrders, dtpDailyTimePicker.Value, reportType);
-
+            //Gert.heine@aol.com added 04.11.2016
+            
+                if (reportType == 0)
+                {
+                    if (cords.Count > 0)
+                    {
+                        dsComplOrders = ToDataTable(cords);
+                        frView.prepareDailyReport(dsComplOrders, dtpDailyTimePicker.Value, reportType);
+                    }
+                }
+                else if (reportType ==1 || reportType ==2)
+                {
+                    if (cords_my.Count > 0)
+                    {
+                        dsComplOrders = ToDataTableMonthYear(cords_my);
+                        frView.prepareMonthlyYearlyReport(dsComplOrders, dtpDailyTimePicker.Value, reportType);
+                    }
+                }
             frView.ShowDialog();
         }
         class CompeltedOrderComparer : IComparer<CompeltedOrder>
@@ -1096,15 +1142,6 @@ namespace Pizza_La_Rosa
             cmbDrivers.Enabled = chkDelivery.Checked;
             if (cmbDrivers.Items.Count > 0)
                 cmbDrivers.SelectedIndex = 0;
-        }
-
-        private void btnConnect_Click(object sender, EventArgs e)
-        {
-            mDBPath = txtDatabase.Text;
-            if(!performInit())
-            {
-                MessageBox.Show("Failed in connecting database.");
-            }
         }
     }
 }

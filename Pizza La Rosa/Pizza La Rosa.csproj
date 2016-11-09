@@ -76,6 +76,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="CompeltedOrder.cs" />
+    <Compile Include="CompletedOrderMonthYear.cs" />
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +102,7 @@
     <EmbeddedResource Include="frmReportViewer.resx">
       <DependentUpon>frmReportViewer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="monthYearReport.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -112,6 +114,7 @@
     </Compile>
     <EmbeddedResource Include="repInvoice.rdlc" />
     <None Include="Properties\DataSources\CompeltedOrder.datasource" />
+    <None Include="Properties\DataSources\CompletedOrderMonthYear.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -127,7 +130,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="1476622686_pizza_box-y.ico" />
+    <Content Include="pizzadb.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

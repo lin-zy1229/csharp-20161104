@@ -57,8 +57,6 @@
             this.nudQuantity = new System.Windows.Forms.NumericUpDown();
             this.txtReferenceNo = new System.Windows.Forms.TextBox();
             this.grpVariations = new System.Windows.Forms.GroupBox();
-            this.chkDelivery = new System.Windows.Forms.CheckBox();
-            this.cmbDrivers = new System.Windows.Forms.ComboBox();
             this.pnlIngredients = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
             this.txtComment = new System.Windows.Forms.TextBox();
@@ -67,6 +65,8 @@
             this.chkBaked = new System.Windows.Forms.CheckBox();
             this.lblPrice = new System.Windows.Forms.Label();
             this.pnlVariations = new System.Windows.Forms.Panel();
+            this.chkDelivery = new System.Windows.Forms.CheckBox();
+            this.cmbDrivers = new System.Windows.Forms.ComboBox();
             this.btnConfirmOrder = new System.Windows.Forms.Button();
             this.btnDone = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
@@ -90,11 +90,7 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.lblRabbat = new System.Windows.Forms.Label();
-            this.chkHardcoded = new System.Windows.Forms.CheckBox();
-            this.txtDatabase = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
             this.chcmbIngridients = new CheckComboBoxTest.CheckedComboBox();
-            this.btnConnect = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).BeginInit();
             this.grpVariations.SuspendLayout();
@@ -116,11 +112,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(11, 79);
+            this.label2.Location = new System.Drawing.Point(11, 67);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 13);
+            this.label2.Size = new System.Drawing.Size(43, 13);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Phone";
+            this.label2.Text = "Telefon";
             // 
             // txtTelephone
             // 
@@ -135,7 +131,7 @@
             "leriko"});
             this.txtTelephone.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.txtTelephone.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txtTelephone.Location = new System.Drawing.Point(95, 76);
+            this.txtTelephone.Location = new System.Drawing.Point(95, 64);
             this.txtTelephone.Name = "txtTelephone";
             this.txtTelephone.Size = new System.Drawing.Size(206, 20);
             this.txtTelephone.TabIndex = 2;
@@ -145,7 +141,7 @@
             // 
             this.txtName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.txtName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txtName.Location = new System.Drawing.Point(95, 102);
+            this.txtName.Location = new System.Drawing.Point(95, 90);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(206, 20);
             this.txtName.TabIndex = 4;
@@ -154,7 +150,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 104);
+            this.label3.Location = new System.Drawing.Point(12, 92);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(35, 13);
             this.label3.TabIndex = 3;
@@ -162,7 +158,7 @@
             // 
             // txtStrasse
             // 
-            this.txtStrasse.Location = new System.Drawing.Point(95, 132);
+            this.txtStrasse.Location = new System.Drawing.Point(95, 120);
             this.txtStrasse.Name = "txtStrasse";
             this.txtStrasse.Size = new System.Drawing.Size(81, 20);
             this.txtStrasse.TabIndex = 6;
@@ -170,15 +166,15 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 134);
+            this.label4.Location = new System.Drawing.Point(12, 122);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.Size = new System.Drawing.Size(42, 13);
             this.label4.TabIndex = 5;
-            this.label4.Text = "Street";
+            this.label4.Text = "Strasse";
             // 
             // txtPostalCode
             // 
-            this.txtPostalCode.Location = new System.Drawing.Point(95, 160);
+            this.txtPostalCode.Location = new System.Drawing.Point(95, 148);
             this.txtPostalCode.Name = "txtPostalCode";
             this.txtPostalCode.Size = new System.Drawing.Size(57, 20);
             this.txtPostalCode.TabIndex = 8;
@@ -186,11 +182,11 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 165);
+            this.label5.Location = new System.Drawing.Point(12, 153);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(64, 13);
+            this.label5.Size = new System.Drawing.Size(27, 13);
             this.label5.TabIndex = 7;
-            this.label5.Text = "Postal Code";
+            this.label5.Text = "PLZ";
             // 
             // txtHouseNo
             // 
@@ -202,15 +198,15 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(186, 134);
+            this.label6.Location = new System.Drawing.Point(186, 122);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(78, 13);
+            this.label6.Size = new System.Drawing.Size(69, 13);
             this.label6.TabIndex = 9;
-            this.label6.Text = "House Number";
+            this.label6.Text = "Hausnummer";
             // 
             // txtCity
             // 
-            this.txtCity.Location = new System.Drawing.Point(209, 160);
+            this.txtCity.Location = new System.Drawing.Point(209, 148);
             this.txtCity.Name = "txtCity";
             this.txtCity.Size = new System.Drawing.Size(92, 20);
             this.txtCity.TabIndex = 12;
@@ -218,7 +214,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(185, 163);
+            this.label7.Location = new System.Drawing.Point(185, 151);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(24, 13);
             this.label7.TabIndex = 11;
@@ -227,7 +223,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(12, 192);
+            this.label8.Location = new System.Drawing.Point(12, 178);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(79, 13);
             this.label8.TabIndex = 13;
@@ -238,7 +234,7 @@
             // 
             this.txtClientNo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.txtClientNo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txtClientNo.Location = new System.Drawing.Point(95, 214);
+            this.txtClientNo.Location = new System.Drawing.Point(95, 201);
             this.txtClientNo.Name = "txtClientNo";
             this.txtClientNo.Size = new System.Drawing.Size(114, 20);
             this.txtClientNo.TabIndex = 16;
@@ -247,29 +243,29 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(12, 219);
+            this.label9.Location = new System.Drawing.Point(12, 206);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(89, 13);
+            this.label9.Size = new System.Drawing.Size(81, 13);
             this.label9.TabIndex = 15;
-            this.label9.Text = "Customer number";
+            this.label9.Text = "Kundennummer";
             // 
             // chkPicksOrder
             // 
             this.chkPicksOrder.AutoSize = true;
             this.chkPicksOrder.Location = new System.Drawing.Point(95, 243);
             this.chkPicksOrder.Name = "chkPicksOrder";
-            this.chkPicksOrder.Size = new System.Drawing.Size(93, 17);
+            this.chkPicksOrder.Size = new System.Drawing.Size(90, 17);
             this.chkPicksOrder.TabIndex = 17;
-            this.chkPicksOrder.Text = "Self-Collection";
+            this.chkPicksOrder.Text = "Selbstabholer";
             this.chkPicksOrder.UseVisualStyleBackColor = true;
             // 
             // btnSave
             // 
             this.btnSave.Location = new System.Drawing.Point(15, 276);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 30);
+            this.btnSave.Size = new System.Drawing.Size(93, 30);
             this.btnSave.TabIndex = 18;
-            this.btnSave.Text = "Save";
+            this.btnSave.Text = "Speichern";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -279,7 +275,7 @@
             this.btnClearAll.Name = "btnClearAll";
             this.btnClearAll.Size = new System.Drawing.Size(92, 30);
             this.btnClearAll.TabIndex = 19;
-            this.btnClearAll.Text = "Delete fields";
+            this.btnClearAll.Text = "Felder löschen";
             this.btnClearAll.UseVisualStyleBackColor = true;
             this.btnClearAll.Click += new System.EventHandler(this.btnClearAll_Click);
             // 
@@ -300,7 +296,7 @@
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 30);
             this.btnClose.TabIndex = 21;
-            this.btnClose.Text = "break up";
+            this.btnClose.Text = "Beenden";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
@@ -309,18 +305,18 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(339, 51);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(42, 13);
+            this.label10.Size = new System.Drawing.Size(40, 13);
             this.label10.TabIndex = 22;
-            this.label10.Text = "amount";
+            this.label10.Text = "Menge";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(408, 51);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(31, 13);
+            this.label11.Size = new System.Drawing.Size(36, 13);
             this.label11.TabIndex = 23;
-            this.label11.Text = "items";
+            this.label11.Text = "Artikel";
             // 
             // nudQuantity
             // 
@@ -369,28 +365,6 @@
             this.grpVariations.TabIndex = 26;
             this.grpVariations.TabStop = false;
             // 
-            // chkDelivery
-            // 
-            this.chkDelivery.AutoSize = true;
-            this.chkDelivery.Location = new System.Drawing.Point(339, 204);
-            this.chkDelivery.Name = "chkDelivery";
-            this.chkDelivery.Size = new System.Drawing.Size(64, 17);
-            this.chkDelivery.TabIndex = 31;
-            this.chkDelivery.Text = "Delivery";
-            this.chkDelivery.UseVisualStyleBackColor = true;
-            this.chkDelivery.Visible = false;
-            this.chkDelivery.CheckedChanged += new System.EventHandler(this.chkDelivery_CheckedChanged);
-            // 
-            // cmbDrivers
-            // 
-            this.cmbDrivers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbDrivers.FormattingEnabled = true;
-            this.cmbDrivers.Location = new System.Drawing.Point(339, 225);
-            this.cmbDrivers.Name = "cmbDrivers";
-            this.cmbDrivers.Size = new System.Drawing.Size(126, 21);
-            this.cmbDrivers.TabIndex = 30;
-            this.cmbDrivers.Visible = false;
-            // 
             // pnlIngredients
             // 
             this.pnlIngredients.Controls.Add(this.label12);
@@ -406,9 +380,9 @@
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(-2, 6);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(95, 15);
+            this.label12.Size = new System.Drawing.Size(91, 15);
             this.label12.TabIndex = 26;
-            this.label12.Text = "Further covering";
+            this.label12.Text = "Weitere Belage";
             // 
             // txtComment
             // 
@@ -443,9 +417,9 @@
             this.chkBaked.AutoSize = true;
             this.chkBaked.Location = new System.Drawing.Point(153, 130);
             this.chkBaked.Name = "chkBaked";
-            this.chkBaked.Size = new System.Drawing.Size(78, 19);
+            this.chkBaked.Size = new System.Drawing.Size(93, 19);
             this.chkBaked.TabIndex = 27;
-            this.chkBaked.Text = "Overbake";
+            this.chkBaked.Text = "Uberbacken";
             this.chkBaked.UseVisualStyleBackColor = true;
             this.chkBaked.Visible = false;
             // 
@@ -465,6 +439,28 @@
             this.pnlVariations.Size = new System.Drawing.Size(124, 117);
             this.pnlVariations.TabIndex = 25;
             // 
+            // chkDelivery
+            // 
+            this.chkDelivery.AutoSize = true;
+            this.chkDelivery.Location = new System.Drawing.Point(339, 204);
+            this.chkDelivery.Name = "chkDelivery";
+            this.chkDelivery.Size = new System.Drawing.Size(64, 17);
+            this.chkDelivery.TabIndex = 31;
+            this.chkDelivery.Text = "Delivery";
+            this.chkDelivery.UseVisualStyleBackColor = true;
+            this.chkDelivery.Visible = false;
+            this.chkDelivery.CheckedChanged += new System.EventHandler(this.chkDelivery_CheckedChanged);
+            // 
+            // cmbDrivers
+            // 
+            this.cmbDrivers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbDrivers.FormattingEnabled = true;
+            this.cmbDrivers.Location = new System.Drawing.Point(339, 225);
+            this.cmbDrivers.Name = "cmbDrivers";
+            this.cmbDrivers.Size = new System.Drawing.Size(126, 21);
+            this.cmbDrivers.TabIndex = 30;
+            this.cmbDrivers.Visible = false;
+            // 
             // btnConfirmOrder
             // 
             this.btnConfirmOrder.Image = ((System.Drawing.Image)(resources.GetObject("btnConfirmOrder.Image")));
@@ -473,7 +469,7 @@
             this.btnConfirmOrder.Name = "btnConfirmOrder";
             this.btnConfirmOrder.Size = new System.Drawing.Size(126, 37);
             this.btnConfirmOrder.TabIndex = 27;
-            this.btnConfirmOrder.Text = "Order completed";
+            this.btnConfirmOrder.Text = "   Bestellung fertig";
             this.btnConfirmOrder.UseVisualStyleBackColor = true;
             this.btnConfirmOrder.Click += new System.EventHandler(this.btnConfirmOrder_Click);
             // 
@@ -485,7 +481,7 @@
             this.btnDone.Name = "btnDone";
             this.btnDone.Size = new System.Drawing.Size(126, 30);
             this.btnDone.TabIndex = 28;
-            this.btnDone.Text = "done";
+            this.btnDone.Text = "Felder löschen";
             this.btnDone.UseVisualStyleBackColor = true;
             this.btnDone.Click += new System.EventHandler(this.btnDone_Click);
             // 
@@ -494,9 +490,9 @@
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(309, 318);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(75, 13);
+            this.label13.Size = new System.Drawing.Size(76, 13);
             this.label13.TabIndex = 29;
-            this.label13.Text = "Previous order";
+            this.label13.Text = "Felder löschen";
             // 
             // dgvOrders
             // 
@@ -572,9 +568,9 @@
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label14.Location = new System.Drawing.Point(663, 546);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(40, 13);
+            this.label14.Size = new System.Drawing.Size(53, 13);
             this.label14.TabIndex = 31;
-            this.label14.Text = "Total:";
+            this.label14.Text = "Gesamt:";
             // 
             // lblTotalPrice
             // 
@@ -592,7 +588,7 @@
             this.btnDeleteSelected.Name = "btnDeleteSelected";
             this.btnDeleteSelected.Size = new System.Drawing.Size(142, 30);
             this.btnDeleteSelected.TabIndex = 33;
-            this.btnDeleteSelected.Text = "   Delete selected";
+            this.btnDeleteSelected.Text = "     Ausgewählte löschen";
             this.btnDeleteSelected.UseVisualStyleBackColor = true;
             this.btnDeleteSelected.Click += new System.EventHandler(this.btnDeleteSelected_Click);
             // 
@@ -600,7 +596,7 @@
             // 
             this.cmbDeliverySector.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDeliverySector.FormattingEnabled = true;
-            this.cmbDeliverySector.Location = new System.Drawing.Point(95, 188);
+            this.cmbDeliverySector.Location = new System.Drawing.Point(95, 174);
             this.cmbDeliverySector.Name = "cmbDeliverySector";
             this.cmbDeliverySector.Size = new System.Drawing.Size(206, 21);
             this.cmbDeliverySector.TabIndex = 34;
@@ -686,9 +682,9 @@
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label17.Location = new System.Drawing.Point(667, 564);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(61, 13);
+            this.label17.Size = new System.Drawing.Size(49, 13);
             this.label17.TabIndex = 37;
-            this.label17.Text = "Discount:";
+            this.label17.Text = "Rabatt:";
             // 
             // lblRabbat
             // 
@@ -697,43 +693,6 @@
             this.lblRabbat.Name = "lblRabbat";
             this.lblRabbat.Size = new System.Drawing.Size(0, 13);
             this.lblRabbat.TabIndex = 40;
-            // 
-            // chkHardcoded
-            // 
-            this.chkHardcoded.AutoSize = true;
-            this.chkHardcoded.Location = new System.Drawing.Point(221, 243);
-            this.chkHardcoded.Name = "chkHardcoded";
-            this.chkHardcoded.Size = new System.Drawing.Size(56, 17);
-            this.chkHardcoded.TabIndex = 41;
-            this.chkHardcoded.Text = "Stable";
-            this.chkHardcoded.UseVisualStyleBackColor = true;
-            // 
-            // txtDatabase
-            // 
-            this.txtDatabase.AutoCompleteCustomSource.AddRange(new string[] {
-            "narek",
-            "valod",
-            "poxos",
-            "poxert",
-            "poxalio",
-            "natuisd",
-            "leraa",
-            "leriko"});
-            this.txtDatabase.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.txtDatabase.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txtDatabase.Location = new System.Drawing.Point(95, 48);
-            this.txtDatabase.Name = "txtDatabase";
-            this.txtDatabase.Size = new System.Drawing.Size(125, 20);
-            this.txtDatabase.TabIndex = 2;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(12, 51);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(53, 13);
-            this.label18.TabIndex = 1;
-            this.label18.Text = "Database";
             // 
             // chcmbIngridients
             // 
@@ -748,23 +707,11 @@
             this.chcmbIngridients.TabIndex = 25;
             this.chcmbIngridients.ValueSeparator = ", ";
             // 
-            // btnConnect
-            // 
-            this.btnConnect.Location = new System.Drawing.Point(226, 46);
-            this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(75, 23);
-            this.btnConnect.TabIndex = 42;
-            this.btnConnect.Text = "Connect";
-            this.btnConnect.UseVisualStyleBackColor = true;
-            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(807, 583);
-            this.Controls.Add(this.btnConnect);
-            this.Controls.Add(this.chkHardcoded);
             this.Controls.Add(this.chkDelivery);
             this.Controls.Add(this.lblRabbat);
             this.Controls.Add(this.cmbDrivers);
@@ -804,9 +751,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtDatabase);
             this.Controls.Add(this.txtTelephone);
-            this.Controls.Add(this.label18);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -891,10 +836,6 @@
         private System.Windows.Forms.Label lblComment;
         private System.Windows.Forms.ComboBox cmbDrivers;
         private System.Windows.Forms.CheckBox chkDelivery;
-        private System.Windows.Forms.CheckBox chkHardcoded;
-        private System.Windows.Forms.TextBox txtDatabase;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Button btnConnect;
     }
 }
 
